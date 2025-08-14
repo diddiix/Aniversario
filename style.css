@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffe6e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.photo {
+    width: 180px;
+    background-image: url("pcture456.jpeg"); /* Cambia por tu foto */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin: 20px;
+}
+
+.keypad {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.display {
+    width: 200px;
+    height: 40px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 40px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    letter-spacing: 5px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-gap: 10px;
+}
+
+button {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    border: none;
+    background: #ff99aa;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #ff4d6d;
+    color: white;
+}
+
+.scratch-container {
+    position: relative;
+    background-color: #ffe6f0; /* Fondo rosa */
+    overflow: hidden;
+    left: 50px;
+}
+
+#scratchCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2; /* Canvas arriba inicialmente */
+    cursor: crosshair;
+}
+.hidden {
+    display: none; /* Oculta la sección de raspa */
+}
+.hidden-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    color: #ff3366;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1; /* Por debajo del canvas, pero sobre el fondo */
+    opacity: 0; /* Oculto al inicio */
+    transition: opacity 1s ease-in-out;
+}
+
+.hidden-message.show {
+    opacity: 1; /* Aparece cuando se raspa suficiente */
+}
+
+/* Corazón botón */
+#heartButton {
+    display: block;
+    margin: 20px auto;
+    font-size: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    animation: bounce 1s infinite;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Corazones animados */
+#heartsContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+.heart {
+    position: absolute;
+    color: #ff4d6d;
+    font-size: 20px;
+    animation: fall 5s linear infinite;
+}
+@keyframes fall {
+    0% { transform: translateY(-10%); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Carta */
+#letterSection {
+    text-align: center;
+    margin-top: 10px;
+}
+.letter {
+    background-image: url("scrapbook.png"); /* Cambia por tu foto */
+    width: 500px;
+    height: 800px;
+    margin: auto;
+    perspective: 1000px;
+    cursor: pointer;
+}
+.letter-front, .letter-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.letter-front {
+    background: #ff99aa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+}
+.letter-back {
+    background: white;
+    color: #ff3366;
+    transform: rotateY(180deg);
+    font-size: 18px;
+}
+.letter.open {
+    transform: rotateY(180deg);
+}

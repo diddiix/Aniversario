@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Primer Aniversario! ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Contenedor de la primera vista -->
+    <div class="container" id="loginSection">
+        <div class="photo">
+        </div>
+        <div class="keypad">
+            <div class="display"></div>
+            <div class="buttons">
+                <button class="key" data-value="1">1</button>
+                <button class="key" data-value="2">2</button>
+                <button class="key" data-value="3">3</button>
+                <button class="key" data-value="4">4</button>
+                <button class="key" data-value="5">5</button>
+                <button class="key" data-value="6">6</button>
+                <button class="key" data-value="7">7</button>
+                <button class="key" data-value="8">8</button>
+                <button class="key" data-value="9">9</button>
+                <button class="key" data-value="clear">⟳</button>
+                <button class="key" data-value="0">0</button>
+                <button class="key" data-value="ok">OK</button>
+            </div>
+        </div>
+    </div>
+
+   <!-- Contenedor de la sorpresa -->
+<div id="scratchSection" class="hidden">
+    <h2 class="surprise">💖 ¡Rasca para ver tu sorpresa! 💖</h2>
+    <div class="scratch-container" style="position:relative; width:300px; height:200px;">
+        <div class="hidden-message">
+            ¡Te amo! ❤️<br>
+            Hemos pasado por tanto, y aun así, cada día te sigo eligiendo, porque amarte es lo más hermoso que me ha pasado.
+            Feliz aniversario, mi amor 💕
+        </div>
+        <canvas id="scratchCanvas" width="300" height="200"></canvas>
+    </div>
+    <button id="heartButton" class="hidden">❤️</button>
+    <div id="heartsContainer"></div>
+</div>
+
+<!-- ✅ Nueva sección para la carta -->
+<div id="letterSection" class="hidden">
+    <div class="letter" id="letter">
+        <img src="scrapbook.png" alt="Carta de amor" style="width:100%; height:100%;">
+
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
